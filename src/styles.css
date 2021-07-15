@@ -26,4 +26,9 @@ html, body {
 
 body {
     font-family: 'Poppins', Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #FBF9F6;
+}
+
+.vw-95 {
+    width: 95vw;
 }
