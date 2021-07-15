@@ -5,13 +5,15 @@ import { QuizzesComponent } from './pages/quizzes/quizzes.component';
 import { ScoreComponent } from './pages/score/score.component';
 import { QuizComponent } from './pages/quiz/quiz.component';
 import { QuizRoutingModule } from './quiz-routing.module';
+import { QuestionNoPipe } from './pipes/question-no.pipe';
 
 @NgModule({
   declarations: [
     QuestionComponent,
     QuizzesComponent,
     QuizComponent,
-    ScoreComponent
+    ScoreComponent,
+    QuestionNoPipe
   ],
   imports: [
     CommonModule,
