@@ -9,7 +9,7 @@ import { Score } from '../models/score';
   providedIn: 'root'
 })
 export class QuizService {
-  private url = `${environment.strapiUrl}/quizes`;
+  private url = `${environment.strapiUrl}/quizzes`;
 
   constructor(private http: HttpClient) { }
 

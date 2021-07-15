@@ -1,1 +1,5 @@
-<p>quizzes works!</p>
+<div *ngIf="quizzes$ | async as quizzes">
+    <div *ngFor="let quiz of quizzes">
+        {{quiz.Name}}
+    </div>
+</div>
