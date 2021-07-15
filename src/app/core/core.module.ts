@@ -12,6 +12,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    HeaderComponent
   ]
 })
 export class CoreModule { }
