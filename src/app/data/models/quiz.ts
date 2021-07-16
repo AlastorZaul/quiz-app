@@ -1,7 +1,7 @@
 import { Question } from "./question";
 
 export interface Quiz {
-    Id: number;
+    id: number;
     Name: string;
     Description: string;
     Questions: Question[];

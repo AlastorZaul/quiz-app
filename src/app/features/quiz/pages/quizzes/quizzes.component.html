@@ -1,17 +1,19 @@
 <div class="flex-grow-1 vw-95 d-flex flex-column align-items-center">
-    <h1 class="display-1 font-weight-normal text-center mt-2">Take a Quiz</h1>
-    <h2 class="text-secondary font-weight-light mb-5 text-center">test your knowledge</h2>
-    <div *ngIf="quizzes$ | async as quizzes" class="vw-95 d-flex align-items-center justify-content-center flex-wrap">
-        <div *ngFor="let quiz of quizzes" class="align-self-start m-2 card app-card"
-            style="width: 15rem; height: 14rem;">
-            <div class="card-header">
-                Questions: {{quiz.Questions.length}}
-            </div>
-            <div class="card-body d-flex flex-column">
+    <h1 class="d-none d-lg-flex display-1 font-weight-normal text-center mt-2">Take a Quiz</h1>
+    <h1 class="d-md-flex d-lg-none font-weight-normal text-center mt-5">Take a Quiz</h1>
+    <h2 class="d-none d-lg-flex text-secondary font-weight-light mb-5 text-center">test your knowledge
+    </h2>
+    <h4 class="d-md-flex d-lg-none text-secondary font-weight-light mb-5 text-center">test your knowledge</h4>
+    <div *ngIf="quizzes$ | async as quizzes" class="vw-75 d-flex align-items-center justify-content-center flex-wrap">
+        <div *ngFor="let quiz of quizzes" class="align-self-start m-2 card quiz-card">
+            <div class="card-body d-flex flex-column  flex-grow-1">
                 <h5 class="card-title">{{quiz.Name}}</h5>
-                <p class="card-text flex-grow-1">{{quiz.Description}}</p>
-                <a href="#" class="btn btn-sm xapp-button">Take Quiz</a>
+                <p class="card-text">{{quiz.Description}}</p>
             </div>
+            <ul class="list-group list-group-flush  flex-shrink-1">
+                <li class="list-group-item">Questions: {{quiz.Questions.length}}</li>
+                <li class="list-group-item"><a [routerLink]="['/quiz', quiz.id]" class="btn btn-sm">Take Quiz</a></li>
+            </ul>
         </div>
     </div>
 </div>
