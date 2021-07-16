@@ -1,4 +1,4 @@
-div.quiz-card:nth-child(1n), div.quiz-card:nth-child(1n) li {
+div.quiz-card:nth-child(1n), div.quiz-card:nth-child(1n) li, div.quiz-card:nth-child(1n) a:hover {
     background-color: #E4FFF4;
     color: #1FD489;
     border-color: #1FD489;
@@ -9,7 +9,7 @@ div.quiz-card:nth-child(1n) a {
     color: white;
 }
 
-div.quiz-card:nth-child(2n), div.quiz-card:nth-child(2n) li {
+div.quiz-card:nth-child(2n), div.quiz-card:nth-child(2n) li, div.quiz-card:nth-child(2n) a:hover {
     background-color: #F2FAFF;
     color: #01B2FF;
     border-color: #01B2FF;
@@ -20,7 +20,7 @@ div.quiz-card:nth-child(2n) a {
     color: white;
 }
 
-div.quiz-card:nth-child(3n), div.quiz-card:nth-child(3n) li {
+div.quiz-card:nth-child(3n), div.quiz-card:nth-child(3n) li, div.quiz-card:nth-child(3n) a:hover {
     background-color: #F6F1FC;
     color: #570FB2;
     border-color: #570FB2;
@@ -31,7 +31,7 @@ div.quiz-card:nth-child(3n) a {
     color: white;
 }
 
-div.quiz-card:nth-child(4n), div.quiz-card:nth-child(4n) li {
+div.quiz-card:nth-child(4n), div.quiz-card:nth-child(4n) li, div.quiz-card:nth-child(4n) a:hover {
     background-color: #FFF8DC;
     color: #FFC700;
     border-color: #FFC700;
@@ -42,7 +42,7 @@ div.quiz-card:nth-child(4n) a {
     color: white;
 }
 
-div.quiz-card:nth-child(5n), div.quiz-card:nth-child(5n) li {
+div.quiz-card:nth-child(5n), div.quiz-card:nth-child(5n) li, div.quiz-card:nth-child(5n) a:hover {
     background-color: #FFEFF3;
     color: #F1416C;
     border-color: #F1416C;
@@ -53,7 +53,7 @@ div.quiz-card:nth-child(5n) a {
     color: white;
 }
 
-div.quiz-card:nth-child(6n), div.quiz-card:nth-child(6n) li {
+div.quiz-card:nth-child(6n), div.quiz-card:nth-child(6n) li, div.quiz-card:nth-child(6n) a:hover {
     background-color: #EFF2F5;
     color: #181D32;
     border-color: #181D32;
@@ -62,10 +62,6 @@ div.quiz-card:nth-child(6n), div.quiz-card:nth-child(6n) li {
 div.quiz-card:nth-child(6n) a {
     background-color: #181D32;
     color: white;
-}
-
-.vw-75 {
-    width: 75vw;
 }
 
 .quiz-card {

@@ -9,6 +9,11 @@ const routes: Routes = [
     loadChildren: () => import('./features/quiz/quiz.module').then(m => m.QuizModule)
   },
   {
+    path: '404',
+    component: NotFoundComponent
+  }
+  ,
+  {
     path: '**',
     component: NotFoundComponent
   }

@@ -1,0 +1,15 @@
+.question-bg {
+    height: 65vh;
+    width: 75vw;
+    padding: 10vw;
+    background-color: #5710B2;
+    color: white;
+}
+
+.answers {
+    display: grid;
+    grid-template-columns: 20vw 20vw;
+    grid-template-rows: 15vh 15vh;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}

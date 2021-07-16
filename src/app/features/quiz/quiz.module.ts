@@ -6,6 +6,7 @@ import { ScoreComponent } from './pages/score/score.component';
 import { QuizComponent } from './pages/quiz/quiz.component';
 import { QuizRoutingModule } from './quiz-routing.module';
 import { QuestionNoPipe } from './pipes/question-no.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { QuestionNoPipe } from './pipes/question-no.pipe';
   ],
   imports: [
     CommonModule,
-    QuizRoutingModule
+    QuizRoutingModule,
+    NgbModule
   ]
 })
 export class QuizModule { }
