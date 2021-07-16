@@ -7,6 +7,7 @@ import { QuizComponent } from './pages/quiz/quiz.component';
 import { QuizRoutingModule } from './quiz-routing.module';
 import { QuestionNoPipe } from './pipes/question-no.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     CommonModule,
     QuizRoutingModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ]
 })
 export class QuizModule { }
