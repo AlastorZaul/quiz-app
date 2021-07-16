@@ -5,6 +5,7 @@ import { Quiz } from 'src/app/data/models/quiz';
 import { QuizService } from 'src/app/data/services/quiz.service';
 import { switchMap } from 'rxjs/operators';
 import { FormControl, FormGroup } from '@angular/forms';
+import { UserAnswer } from 'src/app/data/models/answer';
 
 @Component({
   selector: 'app-quiz',
@@ -33,10 +34,14 @@ export class QuizComponent implements OnInit, OnDestroy {
         this.quiz = quiz;
 
         quiz.Questions.forEach(question => {
-          this.quizForm.registerControl(question.id.toString(), new FormControl(''));
+          this.quizForm.addControl(question.id.toString(), new FormControl(''));
         });
       }
     );
+  }
+
+  setAnswerValue(answ: UserAnswer) {
+    this.quizForm.controls[answ.QuestionId].setValue(answ.Value);
   }
 
 }

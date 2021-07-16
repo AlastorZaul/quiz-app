@@ -1,51 +1,21 @@
 <div *ngIf="quiz" class="d-flex flex-column align-items-center">
-    <div class="mb-4 p-1 text-center d-flex flex-column align-items-center">
+    <div class="mb-2 p-1 text-center d-flex flex-column align-items-center">
         <h1 class="d-none d-lg-flex display-3 font-weight-bold">{{quiz.Name}}</h1>
         <h1 class="d-md-flex d-lg-none font-weight-bold">{{quiz.Name}}</h1>
         <h2 class="d-none d-lg-flex font-weight-light">{{quiz.Description}}</h2>
         <h4 class="d-md-flex d-lg-none font-weight-light">{{quiz.Description}}</h4>
     </div>
-    <form [formGroup]="quizForm" *ngIf="quiz.Questions.length > 0">
+    <form class="d-flex flex-column" [formGroup]="quizForm" *ngIf="quiz.Questions.length > 0">
         <ngb-carousel [animation]="false" [interval]="0" [wrap]="false">
             <ng-template ngbSlide *ngFor="let question of quiz.Questions; index as no">
                 <div class="picsum-img-wrapper">
-                    <div class="d-flex flex-column text-center justify-content-center align-items-center question-bg">
-                        <h1 class="font-weight-bold mb-4">{{no+1}}. {{question.Text}}</h1>
-                        <div class="mt-3 answers">
-                            <button type="button"
-                                class="btn btn-lg text-left app-bg-green font-weight-bold d-flex align-items-center">
-                                <div class="mr-3 font-weight-normal">
-                                    A.
-                                </div>
-                                {{question.A}}
-                            </button>
-                            <button type="button"
-                                class="btn btn-lg text-left app-bg-red font-weight-bold d-flex align-items-center">
-                                <div class="mr-3 font-weight-normal">
-                                    B.
-                                </div>
-                                {{question.B}}
-                            </button>
-                            <button type="button"
-                                class="btn btn-lg text-left app-bg-yellow font-weight-bold d-flex align-items-center">
-                                <div class="mr-3 font-weight-normal">
-                                    C.
-                                </div>
-                                {{question.C}}
-                            </button>
-                            <button type="button"
-                                class="btn btn-lg text-left app-bg-blue font-weight-bold d-flex align-items-center">
-                                <div class="mr-3 font-weight-normal">
-                                    D.
-                                </div>
-                                {{question.D}}
-                            </button>
-                        </div>
-                        <input type="hidden" [formControlName]="question.id.toString()" />
-                    </div>
+                    <app-question [question]="question" [number]="no" (setAnswer)="setAnswerValue($event)">
+                    </app-question>
+                    <input type="hidden" [formControlName]="question.id.toString()" />
                 </div>
             </ng-template>
         </ngb-carousel>
+        <button class="btn btn-dark mx-auto m-4 btn-lg app-bg-light-purple">Submit</button>
     </form>
     <div *ngIf="quiz.Questions.length === 0" class="card app-bg-light-purple m-2">
         <div class="card-body d-flex flex-column align-items-center">
