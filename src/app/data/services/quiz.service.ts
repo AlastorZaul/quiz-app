@@ -17,11 +17,11 @@ export class QuizService {
     return this.http.get<Quiz[]>(this.url);
   }
 
-  getQuiz(id: string) {
+  getQuiz(id: number) {
     return this.http.get<Quiz>(`${this.url}/${id}`);
   }
 
-  score(id: string, answers: UserAnswer[]) {
+  score(id: number, answers: UserAnswer[]) {
     return this.http.post<Score>(`${this.url}/${id}/score`, answers);
   }
 }
