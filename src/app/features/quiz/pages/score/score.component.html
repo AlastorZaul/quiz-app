@@ -10,12 +10,12 @@
 <div *ngIf="score$ | async as score" class="d-flex flex-column text-center align-items-center">
     <app-title [title]="score.Quiz.Name" [subtitle]="score.Quiz.Description"></app-title>
     <hr class="vw-25">
-    <h2 class="font-weight-light text-secondary">You scored:</h2>
+    <h2 class="font-weight-bold">You scored:</h2>
     <h1 class="d-none d-lg-flex display-3 font-weight-bold app-bg-light-yellow p-2 result rounded">
         {{score.Score}}/{{score.QuestionCount}}</h1>
     <h1 class="d-md-flex d-lg-none display-3 font-weight-bold app-bg-light-yellow p-2 result rounded">
         {{score.Score}}/{{score.QuestionCount}}</h1>
-    <h2 class="mt-3 font-weight-light text-secondary">Your answers:</h2>
+    <h2 class="mt-3 font-weight-bold">Your answers:</h2>
     <table class="table app-bg-light-blue">
         <thead>
             <tr>
