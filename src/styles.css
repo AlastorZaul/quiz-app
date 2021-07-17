@@ -44,7 +44,7 @@ body {
 .app-bg-light-green, .app-bg-green:hover {
     background-color: #E4FFF4;
     color: #1FD489;
-    border-color: #1FD489;
+    border: 1px solid #1FD489;
 }
 
 .app-bg-green {
@@ -55,7 +55,7 @@ body {
 .app-bg-light-blue, .app-bg-blue:hover {
     background-color: #F2FAFF;
     color: #01B2FF;
-    border-color: #01B2FF;
+    border: 1px solid #01B2FF;
 }
 
 .app-bg-blue {
@@ -66,7 +66,7 @@ body {
 .app-bg-light-purple, .app-bg-purple:hover {
     background-color: #F6F1FC;
     color: #570FB2;
-    border-color: #570FB2;
+    border: 1px solid #570FB2;
 }
 
 .app-bg-purple {
@@ -77,7 +77,7 @@ body {
 .app-bg-light-yellow, .app-bg-yellow:hover {
     background-color: #FFF8DC;
     color: #FFC700;
-    border-color: #FFC700;
+    border: 1px solid #FFC700;
 }
 
 .app-bg-yellow {
@@ -88,7 +88,7 @@ body {
 .app-bg-light-red, .app-bg-red:hover {
     background-color: #FFEFF3;
     color: #F1416C;
-    border-color: #F1416C;
+    border: 1px solid #F1416C;
 }
 
 .app-bg-red {
@@ -99,7 +99,7 @@ body {
 .app-bg-light-grey, .app-bg-grey:hover {
     background-color: #EFF2F5;
     color: #181D32;
-    border-color: #181D32;
+    border: 1px solid #181D32;
 }
 
 .app-bg-grey {

@@ -3,6 +3,7 @@ import { Quiz } from "./quiz";
 
 export interface Score {
     Quiz: Quiz;
-    ScoredAnswers: UserAnswer;
+    ScoredAnswers: UserAnswer[];
     Score: number;
+    QuestionCount: number;
 }

@@ -1,0 +1,11 @@
+.vw-25 {
+    width: 25vw;
+}
+
+.result {
+    height: 10vw;
+    width: 20vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

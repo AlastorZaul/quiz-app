@@ -5,9 +5,9 @@ import { QuizzesComponent } from './pages/quizzes/quizzes.component';
 import { ScoreComponent } from './pages/score/score.component';
 import { QuizComponent } from './pages/quiz/quiz.component';
 import { QuizRoutingModule } from './quiz-routing.module';
-import { QuestionNoPipe } from './pipes/question-no.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TitleComponent } from './components/title/title.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     QuizzesComponent,
     QuizComponent,
     ScoreComponent,
-    QuestionNoPipe
+    TitleComponent
   ],
   imports: [
     CommonModule,

@@ -1,9 +1,5 @@
 <div class="flex-grow-1 vw-95 d-flex flex-column align-items-center">
-    <h1 class="d-none d-lg-flex display-3 font-weight-bold text-center mt-2">Take a Quiz</h1>
-    <h1 class="d-md-flex d-lg-none font-weight-normal text-center mt-5">Take a Quiz</h1>
-    <h2 class="d-none d-lg-flex text-secondary font-weight-light mb-5 text-center">Test your Knowledge
-    </h2>
-    <h4 class="d-md-flex d-lg-none text-secondary font-weight-light mb-5 text-center">Test your Knowledge</h4>
+    <app-title title="Take a Quiz" subtitle="Test your Knowledge"></app-title>
     <div *ngIf="quizzes$ | async as quizzes" class="vw-75 d-flex align-items-center justify-content-center flex-wrap">
         <div *ngFor="let quiz of quizzes" class="align-self-start m-2 card quiz-card">
             <div class="card-body d-flex flex-column  flex-grow-1">
