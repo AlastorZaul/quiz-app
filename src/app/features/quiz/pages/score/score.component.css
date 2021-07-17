@@ -3,8 +3,8 @@
 }
 
 .result {
-    height: 10vw;
-    width: 20vw;
+    min-height: 10vw;
+    min-width: 20vw;
     display: flex;
     align-items: center;
     justify-content: center;
