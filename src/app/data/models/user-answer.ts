@@ -1,5 +1,5 @@
 export interface UserAnswer {
-    QuestionId: string;
+    QuestionId: number;
     Value: string;
     Correct?: boolean;
     CorrectedValue?: string;

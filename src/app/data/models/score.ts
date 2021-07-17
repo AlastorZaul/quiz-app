@@ -1,4 +1,4 @@
-import { UserAnswer } from "./answer";
+import { UserAnswer } from "./user-answer";
 import { Quiz } from "./quiz";
 
 export interface Score {

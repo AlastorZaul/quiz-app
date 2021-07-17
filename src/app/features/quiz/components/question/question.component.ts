@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { UserAnswer } from 'src/app/data/models/answer';
+import { UserAnswer } from 'src/app/data/models/user-answer';
 import { Question } from 'src/app/data/models/question';
 
 @Component({
@@ -20,6 +20,6 @@ export class QuestionComponent implements OnInit {
 
   pickAnswer(id: number, answer: string, value: string) {
     this.selectedAnswer = `[${answer}] ${value}`;
-    this.setAnswer.emit({ QuestionId: id.toString(), Value: answer });
+    this.setAnswer.emit({ QuestionId: id, Value: answer });
   }
 }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { UserAnswer } from '../models/answer';
+import { UserAnswer } from '../models/user-answer';
 import { Quiz } from '../models/quiz';
 import { Score } from '../models/score';
 

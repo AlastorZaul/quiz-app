@@ -5,7 +5,7 @@ import { Quiz } from 'src/app/data/models/quiz';
 import { QuizService } from 'src/app/data/services/quiz.service';
 import { switchMap } from 'rxjs/operators';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UserAnswer } from 'src/app/data/models/answer';
+import { UserAnswer } from 'src/app/data/models/user-answer';
 
 @Component({
   selector: 'app-quiz',
