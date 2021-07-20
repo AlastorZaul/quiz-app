@@ -20,6 +20,6 @@ export class QuestionComponent implements OnInit {
 
   pickAnswer(id: number, answer: string, value: string) {
     this.selectedAnswer = `[${answer}] ${value}`;
-    this.setAnswer.emit({ QuestionId: id, Value: answer });
+    this.setAnswer.emit({ questionId: id, value: answer });
   }
 }

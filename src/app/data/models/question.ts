@@ -1,9 +1,9 @@
 export interface Question {
     id: number;
-    Text: string;
-    A: string;
-    B: string;
-    C: string;
-    D: string;
-    Answer: string;
+    text: string;
+    a: string;
+    b: string;
+    c: string;
+    d: string;
+    answer: string;
 }

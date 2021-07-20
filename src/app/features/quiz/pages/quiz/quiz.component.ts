@@ -34,7 +34,7 @@ export class QuizComponent implements OnInit, OnDestroy {
       quiz => {
         this.quiz = quiz;
 
-        quiz.Questions.forEach(question => {
+        quiz.questions.forEach(question => {
           this.quizForm.addControl(question.id.toString(), new FormControl('', Validators.required));
         });
       }
@@ -42,7 +42,7 @@ export class QuizComponent implements OnInit, OnDestroy {
   }
 
   setAnswerValue(answ: UserAnswer) {
-    this.quizForm.controls[answ.QuestionId].setValue(answ.Value);
+    this.quizForm.controls[answ.questionId].setValue(answ.value);
   }
 
   score() {

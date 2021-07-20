@@ -28,7 +28,7 @@ export class ScoreComponent implements OnInit {
 
           for (const [qstId, answ] of Object.entries(state)) {
             if (typeof answ === 'string') {
-              reqBody.push({ QuestionId: Number(qstId), Value: answ });
+              reqBody.push({ questionId: Number(qstId), value: answ });
             }
           }
 

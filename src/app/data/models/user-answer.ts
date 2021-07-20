@@ -1,6 +1,6 @@
 export interface UserAnswer {
-    QuestionId: number;
-    Value: string;
-    Correct?: boolean;
-    CorrectValue?: string;
+    questionId: number;
+    value: string;
+    correct?: boolean;
+    correctValue?: string;
 }
