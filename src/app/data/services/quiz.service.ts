@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { UserAnswer } from '../models/user-answer';
+import { Answer } from '../models/answer';
 import { Quiz } from '../models/quiz';
 import { Score } from '../models/score';
 
@@ -19,9 +19,5 @@ export class QuizService {
 
   getQuiz(id: number) {
     return this.http.get<Quiz>(`${this.url}/${id}`);
-  }
-
-  score(id: number, answers: UserAnswer[]) {
-    return this.http.post<Score>(`${this.url}/${id}/score`, answers);
   }
 }
