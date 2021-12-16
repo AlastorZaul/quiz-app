@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { UserAnswer } from 'src/app/data/models/user-answer';
+import { Answer } from 'src/app/data/models/answer';
 import { Question } from 'src/app/data/models/question';
 
 @Component({
@@ -10,7 +10,7 @@ import { Question } from 'src/app/data/models/question';
 export class QuestionComponent {
   @Input() question = {} as Question;
   @Input() number = 0;
-  @Output() setAnswer = new EventEmitter<UserAnswer>();
+  @Output() setAnswer = new EventEmitter<Answer>();
 
   selectedAnswer = '';
 
@@ -18,6 +18,6 @@ export class QuestionComponent {
 
   pickAnswer(id: number, answer: string, value: string) {
     this.selectedAnswer = `[${answer}] ${value}`;
-    this.setAnswer.emit({ questionId: id, value: answer });
+    this.setAnswer.emit({ question: { id }, value: answer });
   }
 }

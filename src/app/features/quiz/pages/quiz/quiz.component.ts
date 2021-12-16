@@ -5,7 +5,7 @@ import { Quiz } from 'src/app/data/models/quiz';
 import { QuizService } from 'src/app/data/services/quiz.service';
 import { switchMap } from 'rxjs/operators';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UserAnswer } from 'src/app/data/models/user-answer';
+import { Answer } from 'src/app/data/models/answer';
 
 @Component({
   selector: 'app-quiz',
@@ -34,15 +34,17 @@ export class QuizComponent implements OnInit, OnDestroy {
       quiz => {
         this.quiz = quiz;
 
-        quiz.questions.forEach(question => {
-          this.quizForm.addControl(question.id.toString(), new FormControl('', Validators.required));
-        });
+        if (quiz.questions) {
+          quiz.questions.forEach(question => {
+            this.quizForm.addControl(question.id.toString(), new FormControl('', Validators.required));
+          });
+        }
       }
     );
   }
 
-  setAnswerValue(answ: UserAnswer) {
-    this.quizForm.controls[answ.questionId].setValue(answ.value);
+  setAnswerValue(answ: Answer) {
+    this.quizForm.controls[answ.question.id].setValue(answ.value);
   }
 
   score() {
