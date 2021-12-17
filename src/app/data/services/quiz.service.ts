@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Answer } from '../models/answer';
 import { Quiz } from '../models/quiz';
-import { Score } from '../models/score';
+import { StrapiResponse } from '../models/strapi-response';
+import { NormalizeService } from './normalize.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +12,17 @@ import { Score } from '../models/score';
 export class QuizService {
   private url = `${environment.strapiUrl}/quizzes`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private ns: NormalizeService) { }
 
-  getQuizzes() {
-    return this.http.get<Quiz[]>(this.url);
+  getQuizzes(): Observable<Quiz[]> {
+    return this.http.get<StrapiResponse>(`${this.url}?populate=questions`)
+      .pipe(this.ns.restructureArrayedAttributes('questions'));
   }
 
-  getQuiz(id: number) {
-    return this.http.get<Quiz>(`${this.url}/${id}`);
+  getQuiz(id: number): Observable<Quiz> {
+    return this.http.get<StrapiResponse>(`${this.url}/${id}`)
+      .pipe(
+        this.ns.restructureAttributes
+      );
   }
 }
