@@ -5,7 +5,7 @@ import { NotFoundComponent } from './core/pages/not-found/not-found.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'auth',
     loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule)
   },
   {
