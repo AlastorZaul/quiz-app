@@ -3,7 +3,7 @@
     <div *ngIf="quizzes$ | async as quizzes" class="vw-75 d-flex align-items-center justify-content-center flex-wrap">
         <div *ngFor="let quiz of quizzes" class="align-self-start m-2 card quiz-card">
             <div class="card-body d-flex flex-column  flex-grow-1">
-                <h5 class="card-title font-weight-bold">{{quiz.name}}</h5>
+                <h5 class="card-title font-weight-bold">{{quiz.title}}</h5>
                 <p class="card-text">{{quiz.description}}</p>
             </div>
             <ul class="list-group list-group-flush  flex-shrink-1">
