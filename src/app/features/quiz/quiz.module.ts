@@ -7,8 +7,8 @@ import { QuizComponent } from './pages/quiz/quiz.component';
 import { QuizRoutingModule } from './quiz-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TitleComponent } from './components/title/title.component';
 import { ScoresComponent } from './pages/scores/scores.component';
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
   declarations: [
@@ -16,14 +16,14 @@ import { ScoresComponent } from './pages/scores/scores.component';
     QuizzesComponent,
     QuizComponent,
     ScoreComponent,
-    TitleComponent,
     ScoresComponent
   ],
   imports: [
     CommonModule,
     QuizRoutingModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CoreModule
   ]
 })
 export class QuizModule { }
