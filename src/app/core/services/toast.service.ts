@@ -13,26 +13,54 @@ export class ToastService {
   }
 
   showDanger(text: string, options: any = {}) {
-    this.show(text, { classname: 'bg-danger text-danger', ...options });
+    this.toasts.push({
+      text,
+      classname: 'bg-danger text-light',
+      header: 'Error',
+      ...options
+    });
   }
 
   showWarning(text: string, options: any = {}) {
-    this.show(text, { classname: 'bg-warning text-warning', ...options });
+    this.toasts.push({
+      text,
+      classname: 'bg-warning text-dark',
+      header: 'Warning',
+      ...options
+    });
   }
 
   showSuccess(text: string, options: any = {}) {
-    this.show(text, { classname: 'bg-success text-success', ...options });
+    this.toasts.push({
+      text,
+      classname: 'bg-success text-light',
+      header: 'Success',
+      ...options
+    });
   }
 
   showPrimary(text: string, options: any = {}) {
-    this.show(text, { classname: 'bg-primary text-primary', ...options });
+    this.toasts.push({
+      text,
+      classname: 'bg-primary text-light',
+      ...options
+    });
   }
 
   showInfo(text: string, options: any = {}) {
-    this.show(text, { classname: 'bg-info text-info', ...options });
+    this.toasts.push({
+      text,
+      classname: 'bg-info text-light',
+      header: 'Info',
+      ...options
+    });
   }
 
   showDark(text: string, options: any = {}) {
-    this.show(text, { classname: 'bg-dark text-light', ...options });
+    this.toasts.push({
+      text,
+      classname: 'bg-dark text-light',
+      ...options
+    });
   }
 }
