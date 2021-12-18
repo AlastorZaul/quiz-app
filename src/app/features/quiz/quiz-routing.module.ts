@@ -11,18 +11,22 @@ const routes: Routes = [
         path: '', component: QuizzesComponent
     },
     {
-        path: '', canActivate: [LoggedInGuard], children: [
+        path: 'quizzes', canActivate: [LoggedInGuard], children: [
             {
-                path: 'quiz/:id', component: QuizComponent
+                path: ':id', component: QuizComponent
             },
             {
-                path: 'quiz/:id/score', component: ScoreComponent
+                path: ':id/score', component: ScoreComponent
+            }
+        ]
+    },
+    {
+        path: 'scores', canActivate: [LoggedInGuard], children: [
+            {
+                path: '', component: ScoresComponent
             },
             {
-                path: '/score/:id', component: ScoreComponent
-            },
-            {
-                path: '/scores', component: ScoresComponent
+                path: ':id', component: ScoreComponent
             }
         ]
     }

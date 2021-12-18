@@ -18,7 +18,11 @@ export class QuizComponent implements OnInit, OnDestroy {
   quizForm: FormGroup = new FormGroup({});
   quizId = 0;
 
-  constructor(private quizService: QuizService, private route: ActivatedRoute, private router: Router) { }
+  constructor(
+    private quizService: QuizService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnDestroy(): void {
     this.quizSub.unsubscribe();
@@ -48,6 +52,6 @@ export class QuizComponent implements OnInit, OnDestroy {
   }
 
   score() {
-    this.router.navigateByUrl(`/quiz/${this.quizId}/score`, { state: this.quizForm.value });
+    this.router.navigateByUrl(`/quizzes/${this.quizId}/score`, { state: this.quizForm.value });
   }
 }
