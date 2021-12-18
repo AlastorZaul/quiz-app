@@ -48,7 +48,7 @@ export class AuthenticationService {
   getPersistedUser(): User {
     return {
       id: this.ss.getItem('userId') || '',
-      username: this.ss.getItem('userEmail') || '',
+      username: this.ss.getItem('username') || '',
       email: this.ss.getItem('userEmail') || ''
     };
   }

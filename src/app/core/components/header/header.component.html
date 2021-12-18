@@ -2,13 +2,13 @@
     <h3 routerLink="/" class="font-weight-bold">Quiz<span class="font-weight-light">App</span></h3>
     <div class="d-flex align-items-center">
         <div class="rounded-circle bg-success text-white avatar mr-2 d-flex align-items-center justify-content-center"
-            *ngIf="isLoggedIn">
+            *ngIf="isLoggedIn" placement="left" ngbTooltip="Scores for {{username}}" routerLink="/scores">
             <h3 class="avatar-text">{{avatarInitial | uppercase}}</h3>
         </div>
         <button routerLink="/auth/signup" type="button" class="m-1 btn app-bg-grey btn-sm" *ngIf="!isLoggedIn">Sign
             Up</button>
-        <button routerLink="/auth/login" type="button" class="m-1 btn app-bg-grey btn-sm" *ngIf="!isLoggedIn">Log
-            In</button>
-        <button (click)="logout()" type="button" class="m-1 btn app-bg-grey btn-sm" *ngIf="isLoggedIn">Log Out</button>
+        <button routerLink="/auth/login" type="button" class="m-1 btn app-bg-grey btn-sm"
+            *ngIf="!isLoggedIn">Login</button>
+        <button (click)="logout()" type="button" class="m-1 btn app-bg-grey btn-sm" *ngIf="isLoggedIn">Logout</button>
     </div>
 </div>

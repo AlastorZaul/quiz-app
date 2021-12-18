@@ -11,6 +11,7 @@ import { ToastService } from '../../services/toast.service';
 export class HeaderComponent implements OnInit {
   isLoggedIn = false;
   avatarInitial = '';
+  username = '';
 
   constructor(
     private auth: AuthenticationService,
@@ -23,13 +24,10 @@ export class HeaderComponent implements OnInit {
       this.isLoggedIn = status;
 
       if (status) {
-        this.setAvatar();
+        this.username = this.auth.getPersistedUser().username;
+        this.avatarInitial = this.username[0] || 'Q';
       }
     });
-  }
-
-  setAvatar() {
-    this.avatarInitial = this.auth.getPersistedUser().username[0] || 'Q';
   }
 
   logout() {
@@ -37,8 +35,6 @@ export class HeaderComponent implements OnInit {
 
     this.toast.showSuccess('Successfully logged out.');
 
-    setTimeout(() => {
-      this.router.navigateByUrl('/');
-    }, 3000);
+    this.router.navigateByUrl('/');
   }
 }
