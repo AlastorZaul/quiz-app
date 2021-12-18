@@ -26,11 +26,6 @@ export class HeaderComponent implements OnInit {
         this.setAvatar();
       }
     });
-
-    if (this.auth.checkIfLoggedIn()) {
-      this.isLoggedIn = true;
-      this.setAvatar();
-    }
   }
 
   setAvatar() {
@@ -46,5 +41,4 @@ export class HeaderComponent implements OnInit {
       this.router.navigateByUrl('/');
     }, 3000);
   }
-
 }
