@@ -15,7 +15,7 @@ interface AuthResponse {
 })
 export class AuthenticationService {
   private url = `${environment.strapiUrl}/auth/local`;
-  private loginTracker = new BehaviorSubject(false);
+  private loginTracker = new BehaviorSubject(this.checkIfLoggedIn());
 
   loggedInStatus$ = this.loginTracker.asObservable();
 
@@ -62,4 +62,10 @@ export class AuthenticationService {
 
     this.loginTracker.next(false);
   }
+
+  getAuthHeader() {
+    return {
+      headers: { 'Authorization': `Bearer ${this.getPersistedToken()}` }
+    };
+  };
 }
