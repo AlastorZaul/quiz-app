@@ -17,10 +17,6 @@ export class QuizzesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.auth.checkIfLoggedIn()) {
-      this.isLoggedIn = true;
-    }
-
     this.auth.loggedInStatus$.subscribe(status => {
       this.isLoggedIn = status;
     });
