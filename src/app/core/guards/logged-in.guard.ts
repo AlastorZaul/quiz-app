@@ -17,8 +17,11 @@ export class LoggedInGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    this.ss.setItem('attemptedRoute', route.toString());
+    if (this.auth.checkIfLoggedIn()) {
+      return true;
+    }
 
-    return this.auth.checkIfLoggedIn() ? true : this.router.parseUrl('/');
+    this.ss.setItem('attemptedRoute', state.url);
+    return this.router.parseUrl('/');
   }
 }
