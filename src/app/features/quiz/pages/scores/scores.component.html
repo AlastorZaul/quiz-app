@@ -1,1 +1,15 @@
-<p>scores works!</p>
+<div class="d-flex flex-column justify-content-center align-items-center">
+    <app-title title="Your Scores" subtitle="Check out your performance"></app-title>
+    <div *ngIf="scores$ | async as scores" class="list-group mt-3 mb-5">
+        <a *ngFor="let scoreResp of scores" class="list-group-item list-group-item-action score"
+            [routerLink]="['/scores', scoreResp.score.id]">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{scoreResp.quiz.title}}</h5>
+                <h5 class="font-weight-bold text-success">{{scoreResp.scoreTotal+'/'+scoreResp.questionCount}}</h5>
+            </div>
+            <p class="mb-1">{{scoreResp.quiz.description}}.</p>
+            <small>{{scoreResp.score.createdAt | date:'fullDate'}} - {{scoreResp.score.createdAt |
+                date:'shortTime'}}</small>
+        </a>
+    </div>
+</div>

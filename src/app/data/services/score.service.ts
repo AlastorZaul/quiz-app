@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { ScoreResponse } from '../models/score-response';
@@ -35,7 +35,15 @@ export class ScoreService {
 
   getScores(): Observable<ScoreResponse[]> {
     return this.http.get<ScoreResponse[]>(this.url,
-      this.auth.getAuthHeader()
+      {
+        params: new HttpParams({
+          fromObject: {
+            'sort': 'createdAt:desc',
+            'pagination[pageSize]': 10
+          }
+        }),
+        ...this.auth.getAuthHeader()
+      }
     );
   }
 }

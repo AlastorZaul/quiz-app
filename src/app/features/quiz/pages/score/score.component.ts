@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { iif, Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { last, map, switchMap, take } from 'rxjs/operators';
 import { Answer } from 'src/app/data/models/answer';
 import { ScoreResponse } from 'src/app/data/models/score-response';
 import { ScoreService } from 'src/app/data/services/score.service';
@@ -13,7 +13,7 @@ import { ScoreService } from 'src/app/data/services/score.service';
 })
 export class ScoreComponent implements OnInit {
   scoreResp$: Observable<ScoreResponse> | undefined;
-  quizId = 0;
+  id = 0;
 
   constructor(private route: ActivatedRoute, private scoreService: ScoreService) { }
 
@@ -21,18 +21,23 @@ export class ScoreComponent implements OnInit {
     this.scoreResp$ = this.route.paramMap
       .pipe(
         switchMap(params => {
+          console.log('params: ', params);
           const state = window.history.state;
-          this.quizId = Number(params.get('id'));
+          this.id = Number(params.get('id'));
 
-          let reqBody: Answer[] = [];
+          if (window.location.pathname.startsWith('/quizzes/')) {
+            let reqBody: Answer[] = [];
 
-          for (const [qstId, answ] of Object.entries(state)) {
-            if (typeof answ === 'string') {
-              reqBody.push({ question: { id: Number(qstId) }, value: answ });
+            for (const [qstId, answ] of Object.entries(state)) {
+              if (typeof answ === 'string') {
+                reqBody.push({ question: { id: Number(qstId) }, value: answ });
+              }
             }
+
+            return iif(() => this.id > 0 && reqBody.length > 0, this.scoreService.createScore({ id: this.id }, reqBody));
           }
 
-          return iif(() => this.quizId > 0 && reqBody.length > 0, this.scoreService.createScore({ id: this.quizId }, reqBody));
+          return this.scoreService.getScore(this.id);
         })
       );
   }
