@@ -43,13 +43,9 @@ export class SignupComponent implements OnInit {
 
         this.auth.persistUser(resp);
 
-        this.toast.showSuccess('Successfully created account.');
+        this.toast.showSuccess('Successfully created account. Redirecting you to the quizzes.');
 
-        this.toast.showSuccess('Redirecting you to some quizzes.');
-
-        setTimeout(() => {
-          this.router.navigateByUrl(this.ss.getItem('attemptedRoute') || '/');
-        }, 6000);
+        this.router.navigateByUrl(this.ss.getItem('attemptedRoute') || '/')
       },
       () => {
         this.toast.showDanger('There was a problem registering your account.');

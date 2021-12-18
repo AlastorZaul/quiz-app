@@ -41,9 +41,7 @@ export class LoginComponent implements OnInit {
 
         this.toast.showSuccess('Successfully logged in.');
 
-        setTimeout(() => {
-          this.router.navigateByUrl(this.ss.getItem('attemptedRoute') || '/');
-        }, 3000);
+        this.router.navigateByUrl(this.ss.getItem('attemptedRoute') || '/')
       },
       () => {
         this.toast.showDanger('Login unsuccessful. Check your credentials.');
