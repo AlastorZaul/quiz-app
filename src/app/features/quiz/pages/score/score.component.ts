@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { iif, Observable } from 'rxjs';
-import { last, map, switchMap, take } from 'rxjs/operators';
+import { iif, Observable, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { Answer } from 'src/app/data/models/answer';
 import { ScoreResponse } from 'src/app/data/models/score-response';
 import { ScoreService } from 'src/app/data/services/score.service';
@@ -14,6 +14,7 @@ import { ScoreService } from 'src/app/data/services/score.service';
 export class ScoreComponent implements OnInit {
   scoreResp$: Observable<ScoreResponse> | undefined;
   id = 0;
+  showError = false;
 
   constructor(private route: ActivatedRoute, private scoreService: ScoreService) { }
 
@@ -21,7 +22,6 @@ export class ScoreComponent implements OnInit {
     this.scoreResp$ = this.route.paramMap
       .pipe(
         switchMap(params => {
-          console.log('params: ', params);
           const state = window.history.state;
           this.id = Number(params.get('id'));
 
@@ -34,7 +34,8 @@ export class ScoreComponent implements OnInit {
               }
             }
 
-            return iif(() => this.id > 0 && reqBody.length > 0, this.scoreService.createScore({ id: this.id }, reqBody));
+            return iif(() => reqBody.length > 0,
+              this.scoreService.createScore({ id: this.id }, reqBody));
           }
 
           return this.scoreService.getScore(this.id);

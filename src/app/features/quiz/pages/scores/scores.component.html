@@ -1,6 +1,11 @@
-<div class="d-flex flex-column justify-content-center align-items-center">
+<ng-template #noScores>
+    <app-message message="Sorry. You haven't taken any quizzes yet. So they are no scores to show."
+        buttonText="See Available Quizzes to Try" redirectPath="/">
+    </app-message>
+</ng-template>
+<div *ngIf="scores$ | async as scores" class="d-flex flex-column justify-content-center align-items-center">
     <app-title title="Your Scores" subtitle="Check out your performance"></app-title>
-    <div *ngIf="scores$ | async as scores" class="list-group mt-3 mb-5">
+    <div *ngIf="scores.length > 0;else noScores" class="list-group mt-3 mb-5">
         <a *ngFor="let scoreResp of scores" class="list-group-item list-group-item-action score"
             [routerLink]="['/scores', scoreResp.score.id]">
             <div class="d-flex w-100 justify-content-between">

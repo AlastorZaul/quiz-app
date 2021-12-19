@@ -6,15 +6,15 @@ import { RouterModule } from '@angular/router';
 import { TitleComponent } from './components/title/title.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastComponent } from './components/toast/toast.component';
-
-
+import { MessageComponent } from './components/message/message.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     NotFoundComponent,
     TitleComponent,
-    ToastComponent
+    ToastComponent,
+    MessageComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +25,8 @@ import { ToastComponent } from './components/toast/toast.component';
     HeaderComponent,
     NotFoundComponent,
     TitleComponent,
-    ToastComponent
+    ToastComponent,
+    MessageComponent
   ]
 })
 export class CoreModule { }
