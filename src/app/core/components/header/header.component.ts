@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AuthenticationService } from '../../services/authentication.service';
 import { ToastService } from '../../services/toast.service';
 
@@ -8,10 +9,12 @@ import { ToastService } from '../../services/toast.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   isLoggedIn = false;
   avatarInitial = '';
   username = '';
+
+  authStatus!: Subscription;
 
   constructor(
     private auth: AuthenticationService,
@@ -20,7 +23,7 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.auth.loggedInStatus$.subscribe(status => {
+    this.authStatus = this.auth.loggedInStatus$.subscribe(status => {
       this.isLoggedIn = status;
 
       if (status) {
@@ -28,6 +31,10 @@ export class HeaderComponent implements OnInit {
         this.avatarInitial = this.username[0] || 'Q';
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.authStatus.unsubscribe();
   }
 
   logout() {

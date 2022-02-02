@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { AuthenticationService } from 'src/app/core/services/authentication.service';
 import { QuizService } from 'src/app/data/services/quiz.service';
 
@@ -7,18 +8,13 @@ import { QuizService } from 'src/app/data/services/quiz.service';
   templateUrl: './quizzes.component.html',
   styleUrls: ['./quizzes.component.css']
 })
-export class QuizzesComponent implements OnInit {
+export class QuizzesComponent {
   quizzes$ = this.quizService.getQuizzes();
-  isLoggedIn = false;
+
+  authStatus!: Subscription;
 
   constructor(
     private quizService: QuizService,
-    private auth: AuthenticationService
+    public auth: AuthenticationService
   ) { }
-
-  ngOnInit(): void {
-    this.auth.loggedInStatus$.subscribe(status => {
-      this.isLoggedIn = status;
-    });
-  }
 }

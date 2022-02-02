@@ -9,9 +9,9 @@
             <ul class="list-group list-group-flush  flex-shrink-1">
                 <li class="list-group-item">Questions: {{quiz.questions?.length}}</li>
                 <li class="list-group-item">
-                    <button type="button" [routerLink]="['/quizzes', quiz.id]" class="btn btn-sm"
-                        [disabled]="!isLoggedIn">
-                        {{ isLoggedIn ? 'Take Quiz' : 'Login to attempt' }}
+                    <button *ngIf="{ status: auth.loggedInStatus$ | async } as isLoggedIn" type="button"
+                        [routerLink]="['/quizzes', quiz.id]" class="btn btn-sm" [disabled]="!isLoggedIn.status">
+                        {{ isLoggedIn.status ? 'Take Quiz' : 'Login to attempt' }}
                     </button>
                 </li>
             </ul>
