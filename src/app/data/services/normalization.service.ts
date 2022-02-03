@@ -9,7 +9,7 @@ interface StrapiMultiEntryData { data: StrapiEntry[] }
 @Injectable({
   providedIn: 'root'
 })
-export class NormalizeService {
+export class NormalizationService {
 
   constructor() { }
 

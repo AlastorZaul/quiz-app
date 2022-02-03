@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Quiz } from '../models/quiz';
-import { NormalizeService } from './normalize.service';
+import { NormalizationService } from './normalization.service';
 
 interface StrapiResponse {
   data: any;
@@ -16,7 +16,7 @@ export class QuizService {
   private url = `${environment.strapiUrl}/quizzes`;
   private populateQuestionsParam = { params: new HttpParams().set('populate', '*') };
 
-  constructor(private http: HttpClient, private ns: NormalizeService) { }
+  constructor(private http: HttpClient, private ns: NormalizationService) { }
 
   getQuizzes(): Observable<Quiz[]> {
     return this.http.get<StrapiResponse>(
