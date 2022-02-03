@@ -12,7 +12,6 @@ export class SignupGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return !this.auth.checkIfLoggedIn() ? true : this.router.parseUrl('/');
+    return this.auth.checkIfLoggedIn() ? this.router.parseUrl('/') : true;
   }
-
 }
