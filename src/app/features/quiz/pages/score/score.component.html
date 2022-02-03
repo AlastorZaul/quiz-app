@@ -5,7 +5,7 @@
 </ng-template>
 <div *ngIf="scoreResp$ | async as scoreResp;else noScore"
     class="d-flex flex-column justify-content-center align-items-center text-center">
-    <app-title [title]="scoreResp?.quiz?.title ?? ''" [subtitle]="scoreResp?.quiz?.description  ?? ''"></app-title>
+    <app-title [title]="scoreResp?.quiz?.title" [subtitle]="scoreResp?.quiz?.description"></app-title>
     <h5 class="font-weight-lighter pl-2 pr-2">
         {{scoreResp.score.createdAt | date:'fullDate'}} - {{scoreResp.score.createdAt | date:'shortTime'}}
     </h5>

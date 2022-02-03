@@ -16,7 +16,7 @@ export class QuestionComponent {
 
   constructor() { }
 
-  pickAnswer(id: number, answer: string, value: string) {
+  pickAnswer(id: number, answer: string, value: string = '') {
     this.selectedAnswer = `[${answer}] ${value}`;
     this.setAnswer.emit({ question: { id }, value: answer });
   }
