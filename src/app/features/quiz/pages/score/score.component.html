@@ -28,9 +28,9 @@
         <tbody>
             <tr *ngFor="let answ of scoreResp.score.answers; index as no">
                 <th scope="row">{{no + 1}}</th>
-                <td>{{answ.value}}</td>
+                <td>{{answ.value | uppercase}}</td>
                 <td>{{answ.correct ? '✅' : '❌'}}</td>
-                <td>{{answ.correctValue || answ.value}}</td>
+                <td>{{(answ.correctValue || answ.value) | uppercase}}</td>
             </tr>
         </tbody>
     </table>

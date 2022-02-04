@@ -14,7 +14,6 @@ import { ScoreService } from 'src/app/data/services/score.service';
 export class ScoreComponent implements OnInit {
   scoreResp$: Observable<ScoreResponse> | undefined;
   id = 0;
-  showError = false;
 
   constructor(private route: ActivatedRoute, private scoreService: ScoreService) { }
 
