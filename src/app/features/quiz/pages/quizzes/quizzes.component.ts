@@ -1,5 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component } from '@angular/core';
 import { AuthenticationService } from 'src/app/core/services/authentication.service';
 import { QuizService } from 'src/app/data/services/quiz.service';
 
@@ -10,8 +9,6 @@ import { QuizService } from 'src/app/data/services/quiz.service';
 })
 export class QuizzesComponent {
   quizzes$ = this.quizService.getQuizzes();
-
-  authStatus!: Subscription;
 
   constructor(
     private quizService: QuizService,
