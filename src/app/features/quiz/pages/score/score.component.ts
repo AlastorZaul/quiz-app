@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { iif, Observable, of } from 'rxjs';
+import { iif, Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { Answer } from 'src/app/data/models/answer';
 import { ScoreResponse } from 'src/app/data/models/score-response';
@@ -30,7 +30,7 @@ export class ScoreComponent implements OnInit {
 
             for (const [qstId, answ] of Object.entries(state)) {
               if (typeof answ === 'string') {
-                reqBody.push({ question: { id: Number(qstId) }, value: answ });
+                reqBody.push({ question: { id: Number(qstId) }, value: answ.toLowerCase() });
               }
             }
 
