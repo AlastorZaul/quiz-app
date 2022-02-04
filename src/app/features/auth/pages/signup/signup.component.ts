@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AuthenticationService } from 'src/app/core/services/authentication.service';
 import { StorageService } from 'src/app/core/services/storage.service';
 import { ToastService } from 'src/app/core/services/toast.service';
@@ -10,12 +11,14 @@ import { ToastService } from 'src/app/core/services/toast.service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent implements OnDestroy {
   signupForm = this.fb.group({
     username: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(8)]]
   });
+
+  private registrationSub: Subscription | undefined;
 
   constructor(
     private fb: FormBuilder,
@@ -25,7 +28,10 @@ export class SignupComponent implements OnInit {
     private toast: ToastService
   ) { }
 
-  ngOnInit(): void {
+  ngOnDestroy(): void {
+    if (this.registrationSub) {
+      this.registrationSub.unsubscribe();
+    }
   }
 
   get password() { return this.signupForm.get('password'); }
@@ -33,7 +39,7 @@ export class SignupComponent implements OnInit {
   signup() {
     const user = this.signupForm.value;
 
-    this.auth.register(
+    this.registrationSub = this.auth.register(
       user.username,
       user.email,
       user.password

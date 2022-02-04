@@ -14,9 +14,10 @@ import { Answer } from 'src/app/data/models/answer';
 })
 export class QuizComponent implements OnInit, OnDestroy {
   quiz!: Quiz;
-  quizSub!: Subscription;
   quizForm: FormGroup = new FormGroup({});
   quizId = 0;
+
+  private quizSub!: Subscription;
 
   constructor(
     private quizService: QuizService,
