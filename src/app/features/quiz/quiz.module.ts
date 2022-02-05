@@ -8,9 +8,22 @@ import { QuizRoutingModule } from './quiz-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ScoresComponent } from './pages/scores/scores.component';
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
-  declarations: [QuestionComponent, QuizzesComponent, QuizComponent, ScoreComponent, ScoresComponent],
-  imports: [CommonModule, QuizRoutingModule, NgbModule, ReactiveFormsModule]
+  declarations: [
+    QuestionComponent,
+    QuizzesComponent,
+    QuizComponent,
+    ScoreComponent,
+    ScoresComponent
+  ],
+  imports: [
+    CommonModule,
+    QuizRoutingModule,
+    NgbModule,
+    ReactiveFormsModule,
+    CoreModule
+  ]
 })
 export class QuizModule { }
