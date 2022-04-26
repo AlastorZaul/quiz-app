@@ -1,9 +1,9 @@
-import { UserAnswer } from "./user-answer";
+import { Answer} from "./answer";
 import { Quiz } from "./quiz";
 
 export interface Score {
     quiz: Quiz;
-    scoredAnswers: UserAnswer[];
+    scoredAnswers: Answer[];
     score: number;
     questionCount: number;
 }

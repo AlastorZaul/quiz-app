@@ -1,6 +1,6 @@
 export interface Question {
     id: number;
-    text: string;
+    text?: string;
     a: string;
     b: string;
     c: string;
